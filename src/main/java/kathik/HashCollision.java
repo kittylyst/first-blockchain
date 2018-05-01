@@ -25,7 +25,7 @@ public final class HashCollision {
 
         // Search indefinitely for a match
         FOREVER: while (true) {
-            String candidate = makeRandomString(length);
+            String candidate = Utils.makeRandomString(length);
             if (candidate.hashCode() == target) {
                 break FOREVER;
             }
@@ -37,13 +37,4 @@ public final class HashCollision {
         System.out.println("Length: "+ length +" took attempts: "+ attempts);
     }
 
-    String makeRandomString(int length) {
-        final StringBuilder sb = new StringBuilder();
-        for (int j = 0; j < length; j++) {
-            // Select a random char ch >= 32 && ch < 127
-            char c = (char)(32 + Math.random()*96);
-            sb.append(c);
-        }
-        return sb.toString();
-    }
 }
