@@ -10,7 +10,6 @@ public final class StringHash {
     void run() {
         for (int i=1; i<2_000; i++) {
             timeHashing(i, 'x');
-
         }
     }
 

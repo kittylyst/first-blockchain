@@ -20,21 +20,26 @@ public final class HashCollision {
         }
         final String original = sb.toString();
         final int target = original.hashCode();
-        System.out.println("Length: "+ length +" ; target: "+ target);
+        System.out.println("Length: " + length + " ; target: " + target);
         long attempts = 0;
+        boolean progressBar = false;
 
         // Search indefinitely for a match
-        FOREVER: while (true) {
+        FOREVER:
+        while (true) {
             String candidate = Utils.makeRandomString(length);
             if (candidate.hashCode() == target) {
                 break FOREVER;
             }
-            if (attempts++ % 10_000_000 == 0) {
+            if (++attempts % 10_000_000 == 0) {
+                progressBar = true;
                 System.out.print(".");
             }
         }
+        if (progressBar)
+            System.out.println();
+        System.out.println("Length: " + length + " took attempts: " + attempts);
         System.out.println();
-        System.out.println("Length: "+ length +" took attempts: "+ attempts);
     }
 
 }
