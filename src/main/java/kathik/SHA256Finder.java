@@ -17,7 +17,7 @@ public final class SHA256Finder {
 
     public static void main(String[] args) throws Exception {
         SHA256Finder s = new SHA256Finder();
-        s.findMatcher(1000, 20);
+        s.findMatcher(1024, 20);
     }
 
     void findMatcher(int length, int target) {
@@ -32,7 +32,7 @@ public final class SHA256Finder {
             if (belowThreshold(candidate, target)) {
                 break FOREVER;
             }
-            if (attempts++ % 100_000 == 0) {
+            if (++attempts % 100_000 == 0) {
                 System.out.print(".");
             }
         }
