@@ -28,28 +28,39 @@ public abstract class Node {
         for (int i = 0; i < indent; i++) {
             out.print(" ");
         }
+        final Node left = getLeft();
+        final Node right = getRight();
 
         // Head case
         if (parent == null) {
-            out.println("Node digest: " + computeHash());
+            out.println("Head: " + computeHash() + " : ");
+
+            if (left != null) {
+                left.prettyPrint(indent + 1, out);
+            }
+            out.print("     ");
+            if (right != null) {
+                right.prettyPrint(indent + 1, out);
+            }
+            out.println();
             return;
         }
 
-        if (getRight() != null && getLeft() != null) {
-            // Children are leaf nodes, so indent an extra space
-            for (int i = 0; i < indent + 1; i++) {
-                out.print(" ");
+        // Leaves
+        if (left == null) {
+            if (right != null || !(this instanceof LeafNode)) {
+                out.println(); // Flush the printer JIC
+                throw new IllegalStateException("Leaf in illegal state...");
             }
 
-            out.println("[: " + getLeft().toString() +
-                    " : " + getRight().toString() +" :]");
+            out.print(computeHash());
             return;
-
         }
 
         // Children are tree nodes
-        getLeft().prettyPrint(indent + 1, out);
-        getRight().prettyPrint(indent + 1, out);
+        left.prettyPrint(indent + 1, out);
+        right.prettyPrint(indent + 1, out);
+        out.println();
     }
 
 

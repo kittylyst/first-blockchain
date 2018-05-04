@@ -11,12 +11,13 @@ public final class TreeNode extends Node {
 
     @Override
     public void changeParent(Node newParent) {
-
+        super.changeParent(newParent);
     }
 
     public TreeNode(MerkleTree merkleTree) {
         super(null);
         // This TreeNode knows it's the head
+        forWhenHeadChanges = merkleTree;
     }
 
     // Chase up through children
@@ -56,6 +57,7 @@ public final class TreeNode extends Node {
         if (parent == null) {
             // Change head
             final TreeNode newHead = new TreeNode(forWhenHeadChanges);
+            forWhenHeadChanges.setHead(this);
             forWhenHeadChanges = null;
             changeParent(newHead);
             // Make top right

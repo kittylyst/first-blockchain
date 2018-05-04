@@ -22,17 +22,17 @@ public final class MerkleTree {
             head.setLeft(n);
             lastLeaf = n;
         } else {
-            final TreeNode parent = lastLeaf.getParent();
+            final TreeNode lastParent = lastLeaf.getParent();
 
-            if (parent.getLeft() == null) {
-                n = new LeafNode(parent, next);
-                parent.setLeft(n);
-            } else if (parent.getRight() == null) {
-                n = new LeafNode(parent, next);
-                parent.setRight(n);
+            if (lastParent.getLeft() == null) {
+                n = new LeafNode(lastParent, next);
+                lastParent.setLeft(n);
+            } else if (lastParent.getRight() == null) {
+                n = new LeafNode(lastParent, next);
+                lastParent.setRight(n);
             } else {
                 // New sub-block
-                final TreeNode aunt = parent.rebalanceForSibling(1);
+                final TreeNode aunt = lastParent.rebalanceForSibling(1);
                 n = new LeafNode(aunt, next);
                 aunt.setLeft(n);
             }
@@ -49,5 +49,9 @@ public final class MerkleTree {
 
     public TreeNode getHead() {
         return head;
+    }
+
+    public void setHead(TreeNode newHead) {
+        head = newHead;
     }
 }

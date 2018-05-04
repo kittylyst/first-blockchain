@@ -27,10 +27,14 @@ public class TestMerkleTree {
         MerkleTree t = new MerkleTree(null);
         t.append("cat");
         t.append("dog");
+        t.prettyPrint();
+        System.out.println();
         t.append("rabbit");
         t.append("parrot");
+        t.prettyPrint();
+        System.out.println();
         t.append("goblin");
-//        assertEquals("1809046169", t.getHead().computeHash());
+        assertEquals("-1636958073", t.getHead().computeHash());
         t.prettyPrint();
     }
 
