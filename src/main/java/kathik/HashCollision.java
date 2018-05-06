@@ -13,7 +13,7 @@ public final class HashCollision {
         }
     }
 
-    void findCollisionRandomly(int length, char c) {
+    private void findCollisionRandomly(int length, char c) {
         final StringBuilder sb = new StringBuilder();
         for (int j = 0; j < length; j++) {
             sb.append(c);
