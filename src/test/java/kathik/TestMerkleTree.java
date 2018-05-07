@@ -34,7 +34,7 @@ public class TestMerkleTree {
         t.prettyPrint();
         System.out.println();
         t.append("goblin");
-        assertEquals("-1636958073", t.getHead().computeHash());
+        assertEquals("492608077", t.getHead().computeHash());
         t.prettyPrint();
     }
 

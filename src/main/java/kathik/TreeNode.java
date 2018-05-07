@@ -57,9 +57,11 @@ public final class TreeNode extends Node {
         if (parent == null) {
             // Change head
             final TreeNode newHead = new TreeNode(forWhenHeadChanges);
-            forWhenHeadChanges.setHead(this);
+            forWhenHeadChanges.setHead(newHead);
             forWhenHeadChanges = null;
-            changeParent(newHead);
+            this.changeParent(newHead);
+            newHead.setLeft(this);
+
             // Make top right
             final TreeNode topRight = new TreeNode(newHead);
             newHead.setRight(topRight);

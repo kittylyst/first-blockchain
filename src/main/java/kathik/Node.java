@@ -59,7 +59,10 @@ public abstract class Node {
 
         // Children are tree nodes
         left.prettyPrint(indent + 1, out);
-        right.prettyPrint(indent + 1, out);
+        if (right != null) {
+            right.prettyPrint(indent + 1, out);
+        }
+
         out.println();
     }
 
