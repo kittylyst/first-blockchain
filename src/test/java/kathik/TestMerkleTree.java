@@ -1,5 +1,6 @@
 package kathik;
 
+import kathik.merkle.MerkleTree;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

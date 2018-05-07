@@ -8,7 +8,7 @@ import static kathik.Utils.thresholdMask;
 
 public final class SHA256Finder {
 
-    private MessageDigest digest;
+    private final MessageDigest digest;
 
     public SHA256Finder() throws NoSuchAlgorithmException {
         digest = MessageDigest.getInstance("SHA-256");

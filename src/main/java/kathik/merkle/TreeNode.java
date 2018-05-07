@@ -1,4 +1,4 @@
-package kathik;
+package kathik.merkle;
 
 public final class TreeNode extends Node {
     private MerkleTree forWhenHeadChanges;

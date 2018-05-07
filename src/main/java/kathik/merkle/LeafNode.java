@@ -1,4 +1,4 @@
-package kathik;
+package kathik.merkle;
 
 public class LeafNode extends Node {
     private final String payload;

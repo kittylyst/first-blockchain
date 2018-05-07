@@ -1,4 +1,4 @@
-package kathik;
+package kathik.merkle;
 
 import java.io.PrintStream;
 
