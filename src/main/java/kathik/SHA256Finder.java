@@ -63,19 +63,16 @@ public final class SHA256Finder {
         }
 
         // Now check the bits using one final byte
-        if (thresholdMask[remBits] > (hash[fullBytes] & 0xff)) {
-            return true;
-        }
+        return thresholdMask[remBits] > (hash[fullBytes] & 0xff);
 
-        return false;
     }
 
     String sha256Hash(String s) {
         final byte[] hash = digest.digest(s.getBytes(StandardCharsets.UTF_8));
 
-        final StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < hash.length; i++) {
-            String hex = Integer.toHexString(0xff & hash[i]);
+        final StringBuilder sb = new StringBuilder();
+        for (byte aHash : hash) {
+            String hex = Integer.toHexString(0xff & aHash);
             // We are converting an unsigned byte to a hex string.
             // This will give either 1 or 2 hex digits e.g. 'a' or '23' (35 dec).
             // If we only get 1 back, we need to include the zero byte so we stay fixed-width as a string.

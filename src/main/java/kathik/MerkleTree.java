@@ -1,12 +1,12 @@
 package kathik;
 
-import java.io.PrintStream;
+
 import java.security.MessageDigest;
 
 public final class MerkleTree {
     private TreeNode head = new TreeNode(this);
     private LeafNode lastLeaf;
-    private MessageDigest digest;
+    private final MessageDigest digest;
 
     public MerkleTree(MessageDigest md) {
         digest = md;
