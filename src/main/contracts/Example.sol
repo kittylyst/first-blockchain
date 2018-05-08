@@ -20,12 +20,12 @@ contract Example
     } 
 
     // Accessors
-    function getData() returns (uint256 out){
+    function getData() returns (uint256 out) public {
         return data; 
     } 
 
     function setData(uint256 newData) onlyOwner { 
-        logData(newData); 
+        emit logData(newData); 
         data = newData; 
     } 
 }
