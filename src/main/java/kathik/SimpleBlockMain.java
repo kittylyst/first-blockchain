@@ -1,7 +1,5 @@
 package kathik;
 
-import kathik.solutions.SimpleBlock;
-
 import java.util.HashMap;
 import java.util.Map;
 
