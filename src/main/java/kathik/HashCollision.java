@@ -19,12 +19,13 @@ public final class HashCollision {
             sb.append(c);
         }
         final String original = sb.toString();
+
         final int target = original.hashCode();
         System.out.println("Length: " + length + " ; target: " + target);
-        long attempts = 0;
-        boolean progressBar = false;
 
         // Search indefinitely for a match
+        long attempts = 0;
+        boolean progressBar = false;
         FOREVER:
         while (true) {
             String candidate = Utils.makeRandomString(length);

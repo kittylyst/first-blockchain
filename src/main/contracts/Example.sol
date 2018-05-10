@@ -8,7 +8,7 @@ contract Example
     event logData(uint256 dataToLog);  
 
     modifier onlyOwner() { 
-        if (msg.sender != owner) throw; 
+        if (msg.sender != owner) revert();
         _; 
     } 
 
@@ -20,12 +20,12 @@ contract Example
     } 
 
     // Accessors
-    function getData() returns (uint256 out) public {
+    function getData() public view returns (uint256 out) {
         return data; 
     } 
 
-    function setData(uint256 newData) onlyOwner { 
-        emit logData(newData); 
+    function setData(uint256 newData) public onlyOwner { 
+        logData(newData);
         data = newData; 
     } 
 }
